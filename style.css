@@ -202,19 +202,40 @@ footer {
     gap: 1.5rem 1rem
 }
 
-.card img {
-    width: 100%;
-    border-radius: 4px;
-    box-shadow: 0 2px 8px rgba(20,33,61,.25)
-}
-
-.card h3 a {
-    text-decoration: none
-}
-
-    .card h3 a:hover {
-        text-decoration: underline
+    .grid li {
+        display: flex
     }
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 100%
+
+}
+
+    .card h3 {
+        margin-bottom: .1em; 
+        min-height: 2.7em
+    }
+
+    .card .price {
+        margin-top: auto;
+        padding-top: .4em
+    }
+
+    .card img {
+        width: 100%;
+        border-radius: 4px;
+        box-shadow: 0 2px 8px rgba(20,33,61,.25)
+    }
+
+    .card h3 a {
+        text-decoration: none
+    }
+
+        .card h3 a:hover {
+            text-decoration: underline
+        }
 
 /* Формы */
 label {
