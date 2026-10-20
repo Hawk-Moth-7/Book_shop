@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Книжный магазин «Читающие мотыльки»">
+    <title>Война и мир — Читающие мотыльки</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <a class="logo" href="main.html">
+            <img src="logo.png" alt="Логотип магазина «Читающие мотыльки»" width="40" height="40">
+            <span>Читающие мотыльки</span>
+        </a>
+        <nav aria-label="Основное меню">
+            <a href="main.html">Главная</a>
+            <a href="catalog.html" aria-current="page">Каталог</a>
+            <a href="cart.html">Корзина</a>
+            <a href="about.html">О магазине</a>
+            <a href="contacts.html">Контакты</a>
+        </nav>
+    </header>
+
+    <main class="">
+        <nav class="crumbs" aria-label="Хлебные крошки">
+            <a href="catalog.html">Каталог</a>
+            / Война и мир
+        </nav>
+        <article class="book">
+            <figure>
+                <img src="covers/1.svg" alt="Обложка «Война и мир», Лев Толстой" width="300" height="450">
+            </figure>
+
+            <section class="info">
+                <h1>Война и мир</h1>
+                <p class="muted">Лев Толстой</p>
+                <p>Судьбы нескольких семей на фоне наполеоновских войн. Книга о войне, любви и поиске смысла жизни</p>
+
+                <table class="spec">
+                    <caption class="sr-only">Характеристики книги</caption>
+                    <tr>
+                        <th scope="row">Автор</th>
+                        <td>Лев Толстой</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Жанр</th>
+                        <td>Роман-эпопея</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Год первого издания</th>
+                        <td>1869</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Страниц</th>
+                        <td>1300</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Переплёт</th>
+                        <td>Твёрдый</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Язык</th>
+                        <td>Русский</td>
+                    </tr>
+                </table>
+
+                <p class="price big">890 ₽</p>
+                <a class="btn" href="cart.html">Добавить в корзину</a>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>
+            <small>Читающие мотыльки. Книжный магазин. Санкт-Петербург, пр. Ветеранов, 155</small>
+        </p>
+    </footer>
+</body>
+</html>
