@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Книжный магазин «Читающие мотыльки»">
+    <title>Контакты — Читающие мотыльки</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <a class="logo" href="main.html">
+            <img src="logo.png" alt="Логотип магазина «Читающие мотыльки»" width="40" height="40">
+            <span>Читающие мотыльки</span>
+        </a>
+        <nav aria-label="Основное меню">
+            <a href="main.html">Главная</a>
+            <a href="catalog.html">Каталог</a>
+            <a href="cart.html">Корзина</a>
+            <a href="about.html">О магазине</a>
+            <a href="contacts.html" aria-current="page">Контакты</a>
+        </nav>
+    </header>
+
+    <main class="contacts">
+        <h1>Контакты</h1>
+        <p class="slogan">Читайте то, к чему лежит душа</p>
+        
+        <section>
+            <h2>Как нас найти</h2>
+            <address>
+                <dl>
+                    <dt>Адрес</dt>
+                    <dd>Санкт-Петербург, пр. Ветеранов, 155</dd>
+                    <dt>Телефон</dt>
+                    <dd>
+                        <a href="tel: +78122092505">7+(812)209-25-05</a>
+                    </dd>
+                    <dt>Почта</dt>
+                    <dd>
+                        <a href="mailto:khukhliy@krlib.ru">khukhliy@krlib.ru</a>
+                    </dd>
+                </dl>
+            </address>
+            <h3>Режим работы</h3>
+            <p>Пн-Чт 09:00-20:00
+                <br>Cб-Вс 11:00-18:00
+                <br>Пятница — выходной день
+                <br><i>Последнее число каждого месяца — санитарный день</i>
+            </p>
+        </section>
+
+        <section class="feedback">
+            <h2>Напишите нам</h2>
+            <form aria-label="Форма обратной связи">
+                <label>Имя
+                    <input type="text" name="name" autocomplete="name" required>
+                </label>
+                <label>Почта
+                    <input type="email" name="email" autocomplete="email" required>
+                </label>
+                <label>Сообщение
+                    <textarea name="message" rows="5" required></textarea>
+                </label>
+                <button class="btn" type="submit">Отправить сообщение</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            <small>Читающие мотыльки. Книжный магазин. Санкт-Петербург, пр. Ветеранов, 155</small>
+        </p>
+    </footer>
+</body>
+</html>
