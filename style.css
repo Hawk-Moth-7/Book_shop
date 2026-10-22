@@ -1,355 +1,408 @@
-﻿:root {
-    --ink: #14213d;
-    --paper: #f6f7f9;
-    --card: #fff;
-    --line: #d9dde5;
-    --muted: #5d6678;
-    --acc: #c98a12;
-    --accd: #8a5b00
+﻿:root /* переменные для документа */ 
+{
+    --ink: #14213d; /* цвет для текста и шапки страницы */
+    --paper: #f6f7f9; /* фон страниц */
+    --card: #fff; /* фон для карточек и таблиц */
+    --line: #d9dde5; /* цвет рамок */
+    --muted: #5d6678; /* цвет для второстепенного текста */
+    --acc: #c98a12; /* акцентный цвет */
+    --accd: #8a5b00; /* цвет для ссылок */
+    --navig: #cfd6e6; /* цвет для панели навигации */
+    --btnclr: #1a1200; /* цвет для текста кнопки */
+    --btnback: #dc9a1c; /* цвет для фона кнопки */
 }
 
-*, *::before, *::after {
-    box-sizing: border-box
+*, *::before, *::after /* все элементы */
+{
+    box-sizing: border-box /* все элементы входят в ширину контейнера (убирает горизонтальную прокрутку) */
 }
 
-html {
-    -webkit-text-size-adjust: 100%
+html 
+{
+    -webkit-text-size-adjust: 100% /* запрет для телефона увеличивать шрифт ри повороте экрана */
 }
 
-body {
-    margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font: 17px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;
-    overflow-wrap: break-word
+body /* тело страницы (раздел <body>) */
+{
+    margin: 0; /* убрать отступы по умолчанию по краям */
+    background: var(--paper); /* установить цвет фона для страницы */
+    color: var(--ink); /* установить цвет текста для страницы */
+    font: 17px/1.600 system-ui,-apple-system"Segoe UI",sans-serif; /* размер шрифта, межстрочного интервала и список шрифтов */
+    overflow-wrap: break-word /* перенос длинных слов вместо раздвигания страницы */
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block
+img /* раздел с картинками */
+{
+    max-width: 100%; /* ширина картинки не может привысит ширину контейнера */
+    height: auto; /* автоматический пересчёт высоты картинки для сохранения пропорций */
+    display: block /* убрать зазор под картинкой */
 }
 
-h1, h2, h3, .logo, .price {
-    font-family: Georgia,"Times New Roman",serif
+h1, h2, h3, .logo, .price /* выбор отдельных элементов */
+{
+    font-family: Georgia, "Times New Roman", serif /* установка шрифта с засейчками */
 }
 
-h1 {
-    font-size: 2.2rem;
-    line-height: 1.2;
-    margin: .5em 0
+h1 /* заголовки первого уровня */
+{
+    font-size: 2.2rem; /* определение размера шрифта */
+    line-height: 1.2; /* определение высоты строки */
+    margin: .5em 0 /* определение отступа (.5em для верха и низа, 0 для боков) */
 }
 
-h2 {
-    font-size: 1.5rem;
-    margin: 1.6em 0 .6em
+h2 /* заголовки второго уровня */
+{
+    font-size: 1.5rem; /* определение размера шрифта */
+    margin: 1.6em 0 .6em /* определение отступа (1.6em для верха, 0 для боков, .6em для низа) */
 }
 
-h3 {
-    font-size: 1.05rem;
-    margin: .6em 0 .1em;
-    line-height: 1.3
+h3 /* заголовки третьего уровня */
+{
+    font-size: 1.05rem; /* определение размера шрифта */
+    margin: .6em 0 .1em; /* определние отступа */
+    line-height: 1.3 /* определение высоты строки */
 }
 
-a {
-    color: var(--ink)
+a /* ссылки */
+{
+    color: var(--ink) /* определение цвета ссылок */
 }
 
-    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, .scroll:focus-visible {
-        outline: 3px solid var(--acc);
-        outline-offset: 2px
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, .scroll:focus-visible /* добавление выбора элемента tab'ом */
+    {
+        outline: 3px solid var(--acc); /* рамка вокруг элемента при работе tab'ом с клавиатуры */
+        outline-offset: 2px /* отодвгаение рамки tab'а */
+     }
+
+.sr-only /* определение для скрытых элементов (видимы только для программ) для заголовков таблиц*/
+{
+    position: absolute; /* привязка положения */
+    width: 1px; /* ширина 1px */
+    height: 1px; /* высота 1px */
+    margin: -1px; /* внешний отступ -1px */
+    padding: 0; /* внутренний отступ 0 */
+    overflow: hidden; /* скрыть часть элемента выходящего за границу */
+    clip: rect(0 0 0 0); /* обрезка элемента */
+    white-space: nowrap; /* запрет на перенос */
+    border: 0 /* граница 0 */
+}
+
+header /* шапка сайта (меню сайта) */
+{
+    background: var(--ink); /* фон для шапки сайта */
+    display: flex; /* расположение логотипа и меню в одну строку */
+    flex-wrap: wrap; /* возможность переносить  меню на новую строку при нехватке места */
+    gap: .75rem 1.5rem; /* расстояние между строками и между элементами в строке */
+    align-items: center; /* выравнивание по центру */
+    justify-content:space-between; /* прижатие логотипа влево, а меню вправо */
+    padding: .75rem 1.5rem /* внутрение отступы */
+}
+
+.logo /* логотип и подпись в углу сайта */
+{
+    display: flex; /* расоложение логотипа и подписи рядом */
+    align-items: center; /* выравнивание по центру */
+    gap: .6rem; /* расстояние между логотипом и подписью */
+    color: var(--card); /* цвет подписи логотипа */
+    font-size: 1.3rem; /* размер шрифта */
+    text-decoration: none; /* убрать подчёркивание у ссылки */
+    line-height: 1.2 /* высота строки */
+}
+
+    .logo img /* картинка логотипа */
+    {
+        width: 40px; /* ширина логотипа */
+        height: 40px; /* высота логотипа */
+        flex: none; /* запрет на сжатие логотипа */
+        border-radius: 8px /* скругление углов логотипа */
     }
 
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
-    border: 0
+nav /* основное меню навигации */
+{
+    display: flex; /* расположение всех пунктов меню в одну строку */
+    flex-wrap:wrap; /* возможность переносить меню на новую строку при нехватке места */
+    gap: .25rem 1.2rem /* расстояние между элементами меню */
 }
 
-/* Шапка и меню */
-header {
-    background: var(--ink);
-    display: flex;
-    flex-wrap: wrap;
-    gap: .75rem 1.5rem;
-    align-items: center;
-    justify-content: space-between;
-    padding: .75rem 1.5rem
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: .6rem;
-    color: #fff;
-    font-size: 1.3rem;
-    text-decoration: none;
-    line-height: 1.2
-}
-
-    .logo img {
-        width: 40px;
-        height: 40px;
-        flex: none;
-        border-radius: 8px
+    nav a /* пункты основного меню */
+    {
+        color: var(--navig); /* цвет текста в основном меню */
+        text-decoration: none; /* убрать подчёркивание у ссылки */
+        padding: .3rem 0; /* границы для увеличения области нажатия */
+        border-bottom: 2px solid transparent /* нижняя граница для освобождение места под подчёркивание */
     }
 
-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: .25rem 1.2rem
-}
-
-    nav a {
-        color: #cfd6e6;
-        text-decoration: none;
-        padding: .3rem 0;
-        border-bottom: 2px solid transparent
-    }
-
-        nav a:hover, nav a[aria-current] {
-            color: #fff;
-            border-color: var(--acc)
+        nav a:hover, nav a[aria-current]  /* при наведении мыши будут меняться параметры шрифта */
+        {
+            color: var(--card); /* цвет текста */
+            border-color: var(--acc) /* цвет нижней границы */
         }
 
-main {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 1.5rem
+main /* основная страницы */
+{
+    max-width: 1080px; /* максимальная ширина 1080px */
+    margin: 0 auto; /* боковые отступы делятся поровну */
+    padding: 1.5rem /* отступ от краёв экрана */
 }
 
-footer {
-    border-top: 1px solid var(--line);
-    text-align: center;
-    color: var(--muted);
-    padding: 1.5rem
+footer /* "подвал" сайта */
+{
+    border-top: 1px solid var(--line); /* верхняя страница */
+    text-align:center; /* текст по центру */
+    color: var(--muted); /* цвет текста */
+    padding: 1.5rem /* отступ от границ экрана */
 }
 
-    footer p {
-        margin: 0
+    footer p /* настройки абзаца в "подвале" сайта */
+    {
+        margin: 0 /* нет внешних отступов */
     }
 
-/* Общие элементы */
-.hero {
-    padding: 2.5rem 0 1rem;
-    max-width: 680px
+.hero /* вступительный информационный блок */
+{
+    padding: 2.5rem 0 1rem; /* отступы */
+    max-width: 680px /* ограничение максимальной ширины */
 }
 
-    .hero h1 {
-        font-size: 2.8rem
+    .hero h1 /* заголовок первого уровня во вступительном блоке */
+    {
+        font-size: 2.8rem /* размер шрифта */
     }
 
-    .hero p {
-        font-size: 1.15rem;
-        color: var(--muted)
+    .hero p /* абзац во ступительном блоке */
+    {
+        font-size: 1.15rem; /* размер шрифта */
+        color: var(--muted) /* цвет текста */
     }
 
-.btn {
-    display: inline-block;
-    background: var(--acc);
-    color: #1a1200;
-    border: 0;
-    border-radius: 6px;
-    padding: .65rem 1.2rem;
-    font: inherit;
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer
+.btn /* кнопка ссылка */
+{
+    display: inline-block; /* отображение кнопки с внутренними отступами и высотой */
+    background: var(--acc); /* фон для кнопки */
+    color: var(--btnclr); /* цвет текста в кнопке */
+    border: 0; /* без границ */
+    border-radius: 6px; /* скругление кнопки */
+    padding: .65rem 1.2rem; /* отступы */
+    font: inherit; /* шрифт берётся от окружения */
+    font-weight: 600; /* полужирный текст */
+    text-decoration: none; /* убрать подчеркивание у ссылки */
+    cursor: pointer /* изменение курсора при наведении */
 }
 
-    .btn:hover {
-        background: #dc9a1c
+    .btn:hover /* изменение при наведении */
+    {
+        background: var(--btnback) /* фон при наведении */
     }
 
-    .btn.alt {
-        background: transparent;
-        border: 2px solid var(--ink);
-        color: var(--ink)
+    .btn.alt /* алтернативный вид кнопки */
+    {
+        background: transparent; /* прозрачный фон */
+        border: 2px solid var(--ink); /* границы кнопки */
+        color: var(--ink) /* цвет текста */
     }
 
-.muted {
-    color: var(--muted);
-    margin: .1em 0
+.muted /* текст для подписей */
+{
+    color: var(--muted); /* цвет текста */
+    margin: .1em 0 /* отсупы */
 }
 
-.price {
-    font-weight: bold;
-    margin: .2em 0
+.price /* цена */
+{
+    font-weight: bold; /* жирный шрифт */
+    margin: .2em 0 /* отступы */
 }
 
-    .price.big {
-        font-size: 2rem;
-        margin: 1rem 0
+    .price.big /* крупная цена */
+    {
+        font-size: 2rem; /* размер шрифта */
+        margin: 1rem 0 /* границы */
     }
 
-.crumbs {
-    color: var(--muted)
+.crumbs /* порядок каталогов "хлебные крошки" */
+{
+    color: var(--muted) /* цвет текста */
 }
 
-/* Сетка карточек */
-.grid {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(140px,1fr));
-    gap: 1.5rem 1rem
+.grid /* список */
+{
+    list-style: none; /* убрать маркеры в списке */
+    margin: 0; /* без границы */
+    padding: 0; /* без отступов */
+    display: grid; /* включает отображение таблицей */
+    grid-template-columns: repeat(auto-fill,minmax(140px,1fr)); /* шаблон разбивки таблицы */
+    gap: 1.5rem 1rem /* расстояние между рядами и колонками */
 }
 
-    .grid li {
-        display: flex
+    .grid li /* отображение элементов списка */
+    {
+        display: flex; /* отображение элементов в ряд, а не в столбик */
     }
 
-.card {
-    display: flex;
-    flex-direction: column;
-    width: 100%
-
+.card /* отображение карточек книг */
+{
+    display: flex; /* отображение в строчку */
+    flex-direction: column; /* элементы внутри карточки идут в столбик */
+    width: 100% /* данные занимают всю ширину карточки */
 }
 
-    .card h3 {
-        margin-bottom: .1em; 
-        min-height: 2.7em
+    .card h3 /* заголовки третьего уровня в карточках */
+    {
+        margin-bottom: .1em; /* нижний отступ */
+        min-height: 2.7em /* минимальная высота */
     }
 
-    .card .price {
-        margin-top: auto;
-        padding-top: .4em
+    .card .price /* цена на карточке */
+    {
+        margin-top: auto; /* верхний отступ устанавливается автоматически (цена переходит вниз) */
+        padding-top: .4em /* отступ сверху */
     }
 
-    .card img {
-        width: 100%;
-        border-radius: 4px;
-        box-shadow: 0 2px 8px rgba(20,33,61,.25)
+    .card img /* картинка в карточке */
+    {
+        width: 100%; /* занимает всю ширину */
+        border-radius: 4px; /* скругление углов */
+        box-shadow: 0 2px 8px rgba(20,33,61,.25) /* тень у изображения (сдвиг, размытие и прозрачность) */
     }
 
-    .card h3 a {
-        text-decoration: none
+    .card h3 a /* ссылка в заголовках третьего уровня в карточках */
+    {
+        text-decoration: none; /* убрать подчёркивание для ссылок */
     }
 
-        .card h3 a:hover {
-            text-decoration: underline
+        .card h3 a:hover /* действия при наведении */
+        {
+            text-decoration:underline /* нижнее подчёркивание при наведении */
         }
 
-/* Формы */
-label {
-    display: flex;
-    flex-direction: column;
-    font-size: .9rem;
-    gap: .25rem;
-    color: var(--muted)
+label /* подписи */
+{
+    display: flex; /* выстраивание в строку */
+    flex-direction: column; /* отображение столбиком */
+    font-size: .9rem; /* размер шрифта */
+    gap: .25rem; /* зазор между подписью и полем */
+    color: var(--muted) /* цвет текста */
 }
 
-input, select, textarea {
-    width: 100%;
-    min-width: 0;
-    font: inherit;
-    padding: .5rem .6rem;
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    background: #fff;
-    color: var(--ink)
+input, select, textarea /* поля для ввода и выбора */
+{
+    width: 100%; /* заполняют всю ширину */
+    min-width: 0; /* минимальная ширина 0 */
+    font: inherit; /* шрифт такой же, как у окружения */
+    padding: .5rem .6rem; /* отсутпы сверху и снизу */
+    border: 1px solid var(--line); /* граница и её цвет */
+    border-radius: 6px; /* скругление границ */
+    background: var(--card); /* цвет фона */
+    color: var(--ink) /* цвет текста */
 }
 
-.filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    align-items: flex-end;
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 1rem
+.filters /* панель фильтров */ {
+    display: flex; /* расопложение по прямой */
+    flex-wrap: wrap; /* возможность переносить меню на новую строку при нехватке места */
+    gap: 1rem; /* зазор */
+    align-items: flex-end; /* выравнивание элементы по нижнему краю */
+    background: var(--card); /* цвет фона */
+    border: 1px solid var(--line); /* границы и их цвет */
+    border-radius: 8px; /*скругление границ */
+    padding: 1rem; /* отступ */
+    margin-bottom: 1rem /* отступ */
 }
 
-    .filters label {
+    .filters label /*  */
+    {
         flex: 1 1 160px
     }
 
-.feedback {
+.feedback
+{
     background: var(--card);
     border: 1px solid var(--line);
     border-radius: 8px;
     padding: 1.2rem
 }
 
-    .feedback h2 {
+    .feedback h2
+    {
         margin-top: 0
     }
 
-    .feedback form {
+    .feedback form
+    {
         display: flex;
         flex-direction: column;
-        gap: 1rem
+        gap: 1rem;
     }
 
-/* Страница книги */
-.book {
+.book
+{
     display: grid;
     grid-template-columns: minmax(0,300px) minmax(0,1fr);
     gap: 2rem;
     align-items: start
 }
 
-    .book figure {
+    .book figure
+    {
         margin: 0
     }
 
-    .book img {
+    .book img
+    {
         width: 100%;
         border-radius: 4px;
         box-shadow: 0 4px 14px rgba(20,33,61,.3)
     }
 
-.info h1 {
+.info h1
+{
     margin-top: 0
 }
 
-/* Таблицы */
-table {
+table
+{
     border-collapse: collapse;
     width: 100%;
     background: var(--card)
 }
 
-th, td {
+th, td
+{
     border-bottom: 1px solid var(--line);
     padding: .6rem .8rem;
     text-align: left;
     vertical-align: middle
 }
 
-.spec th[scope=row] {
+.spec th[scope=row]
+{
     width: 40%;
     color: var(--muted);
     font-weight: 500
 }
 
-.scroll {
+.scroll
+{
     overflow-x: auto
 }
 
-.cmp {
+.cmp
+{
     min-width: 480px
 }
 
-.cart input {
+.cart input
+{
     width: 4.5rem
 }
 
-.cart img {
+.cart img
+{
     width: 40px;
     border-radius: 2px
 }
 
-.link {
+.link
+{
     background: none;
     border: 0;
     color: var(--accd);
@@ -359,152 +412,167 @@ th, td {
     padding: 0
 }
 
-.total {
+.total
+{
     font-size: 1.3rem;
     text-align: right
 }
 
-/* Контакты */
-.contacts {
+.contacts
+{
     display: grid;
-    grid-template-columns: repeat(2,minmax(0,1fr));
-    gap: 0 2rem;
+    grid-template-columns: minmax(0,1fr);
+    gap: 0 .2rem;
     align-items: start
 }
 
-    .contacts > h1, .contacts > .slogan {
+    .contacts > h1, .contacts > .slogan
+    {
         grid-column: 1/-1
     }
 
-.slogan {
-    font: italic 1.3rem Georgia,serif;
+.slogan
+{
+    font: italic 1.3rem Georgia, serif;
     color: var(--accd);
     margin: 0
 }
 
-address {
+address
+{
     font-style: normal
 }
 
-dt {
+dt
+{
     color: var(--muted);
     font-size: .9rem;
     margin-top: 1rem
 }
 
-dd {
+dd
+{
     margin: 0;
     font-size: 1.1rem
 }
 
-.prose {
+.prose
+{
     max-width: 680px
 }
 
-/* Планшет и телефон */
-@media(max-width:700px) {
-    main {
+
+@media(max-width:700px) /* настройки для телефонов */
+{
+    main
+    {
         padding: 1rem
     }
-
-    header {
+    
+    header
+    {
         padding: .75rem 1rem
     }
 
-    h1 {
+    h1
+    {
         font-size: 1.7rem
     }
 
-    .hero {
+    .hero
+    {
         padding-top: 1.5rem
     }
-
-        .hero h1 {
+        
+        .hero h1
+        {
             font-size: 2rem
         }
 
-    .book, .contacts {
+    .book, .contacts
+    {
         grid-template-columns: minmax(0,1fr)
     }
 
-        .book figure {
+        .book figure
+        {
             max-width: 240px
         }
 
-        .contacts > h1, .contacts > .slogan {
+        .contacts > h1,  .contacts > .slogan
+        {
             grid-column: auto
         }
 
-    .grid {
+    .grid
+    {
         gap: 1.25rem .75rem
     }
 
-    .filters label {
+    .filters label
+    {
         flex-basis: 100%
     }
 
-    .spec th[scope=row] {
+    .spec th[scope=row]
+    {
         width: 45%
     }
-    /* корзина: каждая строка превращается в карточку */
-    .cart thead {
-        position: absolute;
+
+    .cart thead
+    {
+        position:absolute;
         width: 1px;
         height: 1px;
         overflow: hidden;
         clip: rect(0 0 0 0)
     }
-
-    .cart, .cart tbody {
+    .cart, .cart tbody
+    {
         display: block;
         background: none
     }
 
-        .cart tr {
-            display: grid;
-            grid-template-columns: 40px minmax(0,1fr) auto;
-            column-gap: .75rem;
-            align-items: center;
-            background: var(--card);
-            border: 1px solid var(--line);
-            border-radius: 8px;
-            padding: .75rem;
-            margin-bottom: .75rem
-        }
-
-        .cart td {
+        .cart td
+        {
             border: 0;
             padding: .15rem 0
         }
 
-            .cart td:nth-child(1) {
+            .cart td:nth-child(1)
+            {
                 grid-row: 1/3
             }
 
-            .cart td:nth-child(2) {
+            .cart td:nth-child(2)
+            {
                 grid-column: 2/4
             }
 
-            .cart td:nth-child(3) {
+            .cart td:nth-child(3)
+            {
                 grid-column: 2
             }
 
-            .cart td:nth-child(4) {
+            .cart td:nth-child(4)
+            {
                 grid-column: 3;
                 grid-row: 2
             }
-
-            .cart td:nth-child(5) {
+            
+            .cart td:nth-child(5)
+            {
                 grid-column: 2;
                 font-weight: 600
             }
 
-            .cart td:nth-child(6) {
+            .cart td:nth-child(6)
+            {
                 grid-column: 3;
                 text-align: right
             }
-
-    .total {
+    .total
+    {
         text-align: left
     }
 }
