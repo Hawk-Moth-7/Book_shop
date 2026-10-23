@@ -120,18 +120,16 @@ header /* шапка сайта (меню сайта) */
         border-radius: 8px /* скругление углов логотипа */
     }
 
-nav /* основное меню навигации */
-{
+nav /* основное меню навигации */ {
     display: flex; /* расположение всех пунктов меню в одну строку */
-    flex-wrap:wrap; /* возможность переносить меню на новую строку при нехватке места */
-    gap: .25rem 1.2rem /* расстояние между элементами меню */
+    flex-wrap: wrap; /* возможность переносить меню на новую строку при нехватке места */
+    margin: 0 -.6rem /* расстояние между элементами меню */
 }
 
-    nav a /* пункты основного меню */
-    {
+    nav a /* пункты основного меню */ {
         color: var(--navig); /* цвет текста в основном меню */
         text-decoration: none; /* убрать подчёркивание у ссылки */
-        padding: .3rem 0; /* границы для увеличения области нажатия */
+        padding: .4rem .6rem; /* границы для увеличения области нажатия */
         border-bottom: 2px solid transparent /* нижняя граница для освобождение места под подчёркивание */
     }
 
@@ -387,12 +385,14 @@ th, td
 
 .scroll
 {
-    overflow-x: auto
+    overflow-x: auto;
+    max-width: 100%;
+    -webkit-overflow-scrolling:touch
 }
 
 .cmp
 {
-    min-width: 480px
+    min-width: 720px
 }
 
 .cart input
@@ -467,7 +467,7 @@ dd
 }
 
 
-@media(max-width:700px) /* настройки для телефонов */
+@media(max-width: 720px) /* настройки для телефонов */
 {
     main
     {
@@ -522,6 +522,24 @@ dd
     .spec th[scope=row]
     {
         width: 45%
+    }
+    .cmp
+    {
+        table-layout: fixed;
+        font-size: .75rem
+    }
+
+    .spec.cmp th:first-child
+    {
+        width: 20%
+    }
+
+    .cmp th, .cmp td
+    {
+        padding: .45rem .3rem;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        hyphens: auto
     }
 
     .cart thead
