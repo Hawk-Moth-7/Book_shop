@@ -72,7 +72,7 @@ function initFeedbackForm()
 		event.preventDefault();
 		result.hidden = true;
 		if (!validateForm(form)) return;
-		result.textContent = "Спасибо, " + form.elements["name"].value.trim() + "! Данные проверены. Отправка заработает, когда у сайта появится сервер.";
+		result.textContent = "Спасибо, " + form.elements["name"].value.trim() + "! Данные подтверждены.";
 		result.hidden = false;
 		form.reset();
 	});
