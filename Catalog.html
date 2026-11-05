@@ -13,7 +13,7 @@
 <body>
     <header>
         <a class="logo" href="main.html">
-            <img src="logo.png" alt="Логотип магазина «Читающие мотыльки»">
+            <img src="logo.png" alt="Логотип магазина «Читающие мотыльки»" width="40" height="40">
             <span>Читающие мотыльки</span>
         </a>
 
@@ -29,43 +29,49 @@
     <main class="">
         <h1>Каталог</h1>
         
-        <form class="filters" aria-label="Фильтры и сортировка">
-            <label>Жанр
-                <select>
-                    <option>Все жанры</option>
-                    <option>Роман</option>
+        <form class="filters" id="filters" aria-label="Фильтры и сортировка" novalidate>
+            <label>
+                Жанр
+                <select name="genre">
+                    <option value="">Все жанры</option>
+                    <option>Повесть</option>
                     <option>Поэма</option>
                     <option>Пьеса</option>
-                    <option>Повесть</option>
+                    <option>Роман</option>
+                    <option>Роман в стихах</option>
+                    <option>Роман-эпопея</option>
                 </select>
             </label>
             
             <label>Цена до, ₽
-                <input type="number" placeholder="1000">
+                <input type="number" name="maxPrice" inputmode="numeric" placeholder="1000" aria-describedby="err-maxPrice">
+                <span class="error" id="err-maxPrice"></span>
             </label>
 
             <label>Автор
-                <input type="text" placeholder="Фамилия">
+                <input type="text" name="author" placeholder="Фамилия" aria-describedby="err-author">
+                <span class="error" id="err-author"></span>
             </label>
 
             <label>Сортировка
-                <select>
-                    <option>По названию</option>
-                    <option>Сначала дешевле</option>
-                    <option>Сначала дороже</option>
-                    <option>По году издания</option>
+                <select name="sort">
+                    <option value="title">По названию</option>
+                    <option value="price-asc">Сначала дешевле</option>
+                    <option value="price-desc">Сначала дороже</option>
+                    <option value="year">По году издания</option>
                 </select>
             </label>
             
             <button class="btn" type="submit">Применить</button>
+            <button class="btn alt" type="reset">Сбросить</button>
         </form>
 
         <section>
             <h2>Все книги</h2>
-            <p class="muted">Показано 12 книг</p>
-
-            <ul class="grid">
-                <li>
+            <p class="muted" id="catalog-count" role="status">Показано книг: 12 из 12</p>
+            <p class="muted" id="catalog-empty" hidden>По вашим условиям ничего не найдено.</p>
+            <ul class="grid" id="book-list">
+                <li data-title="Война и мир" data-author="Лев Толстой" data-genre="Роман-эпопея" data-price="890" data-year="1869">
                     <article class="card">
                         <a href="book-1.html">
                             <img src="covers/1.svg" alt="Обложка «Война и мир», Лев Толстой" width="200" height="300">
@@ -78,7 +84,7 @@
                     </article>
                 </li>
             
-                <li>
+                <li data-title="Преступление и наказание" data-author="Фёдор Достоевский" data-genre="Роман" data-price="520" data-year="1866">
                     <article class="card">
                         <a href="book-2.html">
                             <img src="covers/2.svg" alt="Обложка «Преступление и наказание», Фёдор Достоевский" width="200" height="300">
@@ -91,7 +97,7 @@
                     </article>
                 </li>
            
-                <li>
+                <li data-title="Мастер и Маргарита" data-author="Михаил Булгаков" data-genre="Роман" data-price="610" data-year="1967">
                     <article class="card">
                         <a href="book-3.html">
                             <img src="covers/3.svg" alt="Обложка «Мастер и Маргарита», Михаил Булгаков" width="200" height="300">
@@ -104,7 +110,7 @@
                     </article>
                 </li>
             
-                <li>
+                <li data-title="Евгений Онегин" data-author="Александр Пушкин" data-genre="Роман в стихах" data-price="390" data-year="1833">
                     <article class="card">
                         <a href="book-4.html">
                             <img src="covers/4.svg" alt="Обложка «Евгений Онегин», Александр Пушкин" width="200" height="300">
@@ -117,7 +123,7 @@
                     </article>
                 </li>
             
-                <li>
+                <li data-title="Мёртвые души" data-author="Николай Гоголь" data-genre="Поэма" data-price="450" data-year="1842">
                     <article class="card">
                         <a href="book-5.html">
                             <img src="covers/5.svg" alt="Обложка «Мёртвые души», Николай Гоголь" width="200" height="300">
@@ -130,7 +136,7 @@
                     </article>
                 </li>
             
-                <li>
+                <li data-title="Анна Каренина" data-author="Лев Толстой" data-genre="Роман" data-price="640" data-year="1878">
                     <article class="card">
                         <a href="book-6.html">
                             <img src="covers/6.svg" alt="Обложка «Анна Каренина», Лев Толстой" width="200" height="300">
@@ -143,7 +149,7 @@
                     </article>
                 </li>
             
-                <li>
+                <li data-title="Отцы и дети" data-author="Иван Тургенев" data-genre="Роман" data-price="340" data-year="1862">
                     <article class="card">
                         <a href="book-7.html">
                             <img src="covers/7.svg" alt="Обложка «Отцы и дети», Иван Тургенев" width="200" height="300">
@@ -156,7 +162,7 @@
                     </article>
                  </li>
             
-                <li>
+                <li data-title="Обломов" data-author="Иван Гончаров" data-genre="Роман" data-price="480" data-year="1859">
                     <article class="card">
                         <a href="book-8.html">
                             <img src="covers/8.svg" alt="Обложка «Обломов», Иван Гончаров" width="200" height="300">
@@ -169,7 +175,7 @@
                     </article>
                 </li>
             
-                <li>
+                <li data-title="Вишнёвый сад" data-author="Антон Чехов" data-genre="Пьеса" data-price="290" data-year="1904">
                     <article class="card">
                         <a href="book-9.html">
                             <img src="covers/9.svg" alt="Обложка «Вишнёвый сад», Антон Чехов" width="200" height="300">
@@ -182,7 +188,7 @@
                     </article>
                 </li>
                 
-                <li>
+                <li data-title="Герой нашего времени" data-author="Михаил Лермонтов" data-genre="Роман" data-price="360" data-year="1840">
                     <article class="card">
                         <a href="book-10.html">
                             <img src="covers/10.svg" alt="Обложка «Герой нашего времени», Михаил Лермонтов" width="200" height="300">
@@ -195,7 +201,7 @@
                     </article>
                 </li>
             
-                <li>
+                <li data-title="Идиот" data-author="Фёдор Достоевский" data-genre="Роман" data-price="560" data-year="1869">
                     <article class="card">
                         <a href="book-11.html">
                             <img src="covers/11.svg" alt="Обложка «Идиот», Фёдор Достоевский" width="200" height="300">
@@ -208,7 +214,7 @@
                     </article>
                 </li>
             
-                <li>
+                <li data-title="Капитанская дочка" data-author="Александр Пушкин" data-genre="Повесть" data-price="270" data-year="1836">
                     <article class="card">
                         <a href="book-12.html">
                             <img src="covers/12.svg" alt="Обложка «Капитанская дочка», Александр Пушкин" width="200" height="300">
@@ -223,6 +229,12 @@
            </ul>
         </section>
     </main>
-    <footer><p><small>Читающие мотыльки. Книжный магазин. Санкт-Петербург, пр. Ветеранов, 155.</small></p></footer>
+
+    <footer>
+        <p>
+            <small>Читающие мотыльки. Книжный магазин. Санкт-Петербург, пр. Ветеранов, 155.</small>
+        </p>
+    </footer>
+    <script src="script.js" defer></script>
 </body>
 </html>

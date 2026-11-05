@@ -12,7 +12,7 @@
 <body>
     <header>
         <a class="logo" href="main.html">
-            <img src="logo.png" alt="Логотип магазина «Читающие мотыльки»">
+            <img src="logo.png" alt="Логотип магазина «Читающие мотыльки»" width="40" height="40">
             <span>Читающие мотыльки</span>
         </a>
         <nav aria-label="Основное меню">
@@ -36,7 +36,7 @@
                     <dd>Санкт-Петербург, пр. Ветеранов, 155</dd>
                     <dt>Телефон</dt>
                     <dd>
-                        <a href="tel: +78122092505">7+(812)209-25-05</a>
+                        <a href="tel:+78122092505">+7 (812) 209-25-05</a>
                     </dd>
                     <dt>Почта</dt>
                     <dd>
@@ -46,7 +46,7 @@
             </address>
             <h3>Режим работы</h3>
             <p>Пн-Чт 09:00-20:00
-                <br>Cб-Вс 11:00-18:00
+                <br>Сб-Вс 11:00-18:00
                 <br>Пятница — выходной день
                 <br><i>Последнее число каждого месяца — санитарный день</i>
             </p>
@@ -54,18 +54,33 @@
 
         <section class="feedback">
             <h2>Напишите нам</h2>
-            <form aria-label="Форма обратной связи">
+            <form id="feedback-form" aria-label="Форма обратной связи" novalidate>
                 <label>Имя
-                    <input type="text" name="name" autocomplete="name" required>
+                    <input type="text" name="name" autocomplete="name" required aria-describedby="err-name">
+                    <span class="error" id="err-name"></span>
                 </label>
                 <label>Почта
-                    <input type="email" name="email" autocomplete="email" required>
+                    <input type="email" name="email" autocomplete="email" required aria-describedby="err-email">
+                    <span class="error" id="err-email"></span>
                 </label>
                 <label>Сообщение
-                    <textarea name="message" rows="5" required></textarea>
+                    <textarea name="message" rows="5" required aria-describedby="err-message"></textarea>
+                    <span class="error" id="err-message"></span>
                 </label>
                 <button class="btn" type="submit">Отправить сообщение</button>
+                <p class="success" id="form-result" role="status" hidden></p>
             </form>
+        </section>
+
+        <section class="map-block">
+            <h2>Мы на карте</h2>
+            <p class="status" id="map-status" role="status" hidden></p>
+            <figure class="map">
+                <iframe id="map-frame" title="Карта Яндекс-Карт: магазин «Читающие мотыльки», Санкт-Петербург, пр. Ветеранов, 155" data-src="https://yandex.ru/map-widget/v1/?ll=30.129279%2C59.835862&z=17&pt=30.129279%2C59.835862%2Cpm2rdm" width="600" height="300"></iframe>
+                <figcaption>
+                    <a href="https://yandex.ru/maps/2/saint-petersburg/house/prospekt_veteranov_155/Z0kYdwVpS0IOQFtjfXRydHRlZg==/?ll=30.129279%2C59.835862&z=17.13" target="_blank" rel="noopener">Открыть на Яндекс Картах</a>
+                </figcaption>
+            </figure>
         </section>
     </main>
 
@@ -74,5 +89,6 @@
             <small>Читающие мотыльки. Книжный магазин. Санкт-Петербург, пр. Ветеранов, 155</small>
         </p>
     </footer>
+    <script src="script.js" defer></script>
 </body>
 </html>

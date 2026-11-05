@@ -3,7 +3,7 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" , initial-scale="1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Книжный магазин «Читающие мотыльки»">
     <title>Корзина — Читающие мотыльки</title>
     <link rel="stylesheet" href="style.css">
@@ -12,7 +12,7 @@
 <body>
     <header>
         <a class="logo" href="main.html">
-            <img src="logo.png" alt="Логотип магазина «Читающие мотыльки»">
+            <img src="logo.png" alt="Логотип магазина «Читающие мотыльки»" width="40" height="40">
             <span> Читающие мотыльки</span>
         </a>
         <nav aria-label="Основное меню">
@@ -28,82 +28,88 @@
         <h1>Корзина</h1>
         <section>
             <h2>Выбранные книги</h2>
-            <table class="cart">
-                <thead>
-                    <tr>
-                        <th scope="col">
-                            <span class="sr-only">Обложка</span>
-                        </th>
-                        <th scope="col">Книга</th>
-                        <th scope="col">Цена</th>
-                        <th scope="col">Кол-во</th>
-                        <th scope="col">Сумма</th>
-                        <th scope="col">
-                            <span class="sr-only">Действие</span>
-                        </th>
-                    </tr>
-                </thead>
+            <div class="scroll" role="region" aria-label="Выбранные книги" tabindex="0">
+                <table class="cart">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                <span class="sr-only">Обложка</span>
+                            </th>
+                            <th scope="col">Книга</th>
+                            <th scope="col">Цена</th>
+                            <th scope="col">Кол-во</th>
+                            <th scope="col">Сумма</th>
+                            <th scope="col">
+                                <span class="sr-only">Действие</span>
+                            </th>
+                        </tr>
+                    </thead>
 
-                <tbody>
-                    <tr data-p="890">
-                        <td>
-                            <img src="covers/1.svg" alt="Рбложка «Война и мир»" width="40" height="60">
-                        </td>
-                        <td>
-                            <a href="book-1.html">Война и мир</a>
-                            <br>
-                            <span class="muted">Лев Толстой</span>
-                        </td>
-                        <td>890 ₽</td>
-                        <td>
-                            <input type="number" min="1" value="1" aria-label="Количество">
-                        </td>
-                        <td class="sum"></td>
-                        <td>
-                            <button class="link" type="button">Убрать</button>
-                        </td>
-                    </tr>
+                    <tbody>
+                        <tr data-p="890">
+                            <td>
+                                <img src="covers/1.svg" alt="Обложка «Война и мир»" width="40" height="60">
+                            </td>
+                            <td>
+                                <a href="book-1.html">Война и мир</a>
+                                <br>
+                                <span class="muted">Лев Толстой</span>
+                            </td>
+                            <td>890 ₽</td>
+                            <td>
+                                <input type="number" min="1" max="99" value="1" aria-label="Количество">
+                            </td>
+                            <td class="sum"></td>
+                            <td>
+                                <button class="link" type="button">Убрать</button>
+                            </td>
+                        </tr>
 
-                    <tr data-p="610">
-                        <td>
-                            <img src="covers/3.svg" alt="Обложка «Мастер и Маргарита»" width="40" height="60">
-                        </td>
-                        <td>
-                            <a href="book-1.html">Мастер и маргарита</a>
-                            <br>
-                            <span class="muted">Михаил Булгаков</span>
-                        </td>
-                        <td>610 ₽</td>
-                        <td>
-                            <input type="number" min="1" value="2" aria-label="Количество">
-                        </td>
-                        <td class="sum"></td>
-                        <td>
-                            <button class="link" type="button">Убрать</button>
-                        </td>
-                    </tr>
+                        <tr data-p="610">
+                            <td>
+                                <img src="covers/3.svg" alt="Обложка «Мастер и Маргарита»" width="40" height="60">
+                            </td>
+                            <td>
+                                <a href="book-3.html">Мастер и Маргарита</a>
+                                <br>
+                                <span class="muted">Михаил Булгаков</span>
+                            </td>
+                            <td>610 ₽</td>
+                            <td>
+                                <input type="number" min="1" value="2" max="99" aria-label="Количество">
+                            </td>
+                            <td class="sum"></td>
+                            <td>
+                                <button class="link" type="button">Убрать</button>
+                            </td>
+                        </tr>
 
-                    <tr data-p="480">
-                        <td>
-                            <img src="covers/8.svg" alt="Обложка «Обломов»" width="40" height="60">
-                        </td>
-                        <td>
-                            <a href="book-1.html">Обломов</a>
-                            <br>
-                            <span class="muted">Иван Гончаров</span>
-                        </td>
-                        <td>480 ₽</td>
-                        <td>
-                            <input type="number" min="1" value="1" aria-label="Количество">
-                        </td>
-                        <td class="sum"></td>
-                        <td>
-                            <button class="link" type="button">Убрать</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
+                        <tr data-p="480">
+                            <td>
+                                <img src="covers/8.svg" alt="Обложка «Обломов»" width="40" height="60">
+                            </td>
+                            <td>
+                                <a href="book-8.html">Обломов</a>
+                                <br>
+                                <span class="muted">Иван Гончаров</span>
+                            </td>
+                            <td>480 ₽</td>
+                            <td>
+                                <input type="number" min="1" value="1" max="99" aria-label="Количество">
+                            </td>
+                            <td class="sum"></td>
+                            <td>
+                                <button class="link" type="button">Убрать</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="muted" id="cart-empty" hidden>
+                Корзина пустая.
+                <a href="catalog.html">Перейти в каталог</a>
+                , чтобы выбрать книги.
+            </p>
             <p class="total">
                 Итого:
                 <strong id="total"></strong>
@@ -174,5 +180,6 @@
             <small>Читающие мотыльки. Книжный магазин. Санкт-Петербург, пр. Ветеранов, 155.</small>
         </p>
     </footer>
+    <script src="script.js" defer></script>
 </body>
 </html>
