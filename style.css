@@ -316,6 +316,30 @@ input, select, textarea
     .filters label 
     {
         flex: 1 1 160px;
+        position: relative;
+    }
+
+        .filters label .error
+        {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            font-size: 0.75rem;
+            line-height: 1.2;
+        }
+
+    .filters input, .filters select, .filters > button
+    {
+        height: 48px;
+    }
+
+    .filters > button
+    {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
     }
 
 .feedback 
@@ -619,10 +643,38 @@ input[aria-invalid="true"], textarea[aria-invalid="true"]
         gap: 1.25rem 0.75rem;
     }
 
-    .filters label 
+    .filters 
     {
-        flex-basis: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr)) auto auto;
+        align-items: end;
+        gap: 1rem;
     }
+
+        .filters label 
+        {
+            display: grid;
+            grid-template-rows: auto 48px;
+            align-content: end;
+            gap: 0.25rem;
+            min-width: 0;
+        }
+
+        .filters input, .filters select, .filters > button 
+        {
+            height: 48px;
+        }
+
+        .filters .error:empty 
+        {
+            display: none;
+        }
+
+        .filters .error:not(:empty) 
+        {
+            grid-row: 3;
+            font-size: 0.8rem;
+        }
 
     .spec th[scope="row"] 
     {
